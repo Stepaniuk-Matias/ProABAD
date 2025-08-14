@@ -12,3 +12,6 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("ProABAD")
         self.setWindowIcon(QIcon(r".\src\ui\LOGO MIGUEL ABAD.png"))
         self.setMinimumSize(QSize(800, 600))
+
+        menu_bar = self.menuBar()
+        familias_y_atributos = menu_bar.addMenu("Familias y Atributos")
