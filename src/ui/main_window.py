@@ -10,7 +10,7 @@ class MainWindow(QMainWindow):
         self.app = app
 
         self.setWindowTitle("ProABAD")
-        self.setWindowIcon(QIcon(r".\src\ui\LOGO MIGUEL ABAD.png"))
+        self.setWindowIcon(QIcon(r".\src\assets\LOGO MIGUEL ABAD.png"))
         self.setMinimumSize(QSize(800, 600))
 
         menu_bar = self.menuBar()
