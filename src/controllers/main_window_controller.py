@@ -1,11 +1,9 @@
-from PySide6.QtCore import QSize, Qt
-from PySide6.QtGui import QAction, QIcon
-from PySide6.QtWidgets import (QWidget, QLabel, QMainWindow, QLineEdit, 
-                               QVBoxLayout, QHBoxLayout, QDial, QProgressBar, QPushButton,
-                               QMenu, QToolBar, QStackedLayout)
+from PySide6.QtWidgets import QWidget
 
 # TODO: Cambiar nombre de Ui_Form a Ui_MainWindow
 from views.Ui_main_window_view import Ui_Form
+
+from controllers.family_atributes_window_controller import FamilyAtributeWindow
 
 from views.tree_view import TreeView
 from models.tree_model import TreeModel
@@ -26,5 +24,9 @@ class MainWindow(QWidget, Ui_Form):
         self.tree_view = TreeView()
         self.tree_view.setModel(model=self.model)
 
+        self.familys_button.clicked.connect(self.open_family_window)
+        self.toolButton.clicked.connect(self.tree_view.show)
 
-        self.familys_button.clicked.connect(self.tree_view.show)
+    def open_family_window(self):
+        self.w = FamilyAtributeWindow()
+        self.w.show()

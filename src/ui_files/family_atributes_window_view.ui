@@ -358,7 +358,7 @@ QPushButton::hover {background-color : #ffc13b};</string>
                     </property>
                     <property name="icon">
                      <iconset>
-                      <normaloff>../assets/edit.png</normaloff>../assets/edit.png</iconset>
+                      <normaloff>../assets/icons/edit.png</normaloff>../assets/icons/edit.png</iconset>
                     </property>
                    </widget>
                   </item>
@@ -375,11 +375,11 @@ QPushButton::hover {background-color : #ffc13b};</string>
 QPushButton::hover {background-color : #ffc13b};</string>
                     </property>
                     <property name="text">
-                     <string>Nueva familia</string>
+                     <string>Nueva Familia</string>
                     </property>
                     <property name="icon">
                      <iconset>
-                      <normaloff>../assets/plus.png</normaloff>../assets/plus.png</iconset>
+                      <normaloff>../assets/icons/plus.png</normaloff>../assets/icons/plus.png</iconset>
                     </property>
                    </widget>
                   </item>

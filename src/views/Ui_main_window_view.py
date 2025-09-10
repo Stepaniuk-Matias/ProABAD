@@ -159,7 +159,7 @@ class Ui_Form(object):
         self.label.setSizeIncrement(QSize(2, 1))
         self.label.setBaseSize(QSize(381, 339))
         self.label.setAutoFillBackground(False)
-        self.label.setPixmap(QPixmap(u"../assets/icons/logo_abad.png"))
+        self.label.setPixmap(QPixmap(u"./src/assets/icons/logo_abad.png"))
         self.label.setScaledContents(True)
         self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.label.setWordWrap(False)
