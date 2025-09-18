@@ -20,14 +20,15 @@ from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QHeaderView,
     QSizePolicy, QSpacerItem, QTreeView, QVBoxLayout,
     QWidget)
 
-class Ui_FamilyAtributeWindow(object):
-    def setupUi(self, FamilyAtributeWindow):
-        if not FamilyAtributeWindow.objectName():
-            FamilyAtributeWindow.setObjectName(u"FamilyAtributeWindow")
-        FamilyAtributeWindow.resize(1024, 580)
-        self.verticalLayout = QVBoxLayout(FamilyAtributeWindow)
+class Ui_FamilyAtributeWindowForm(object):
+    def setupUi(self, FamilyAtributeWindowForm):
+        if not FamilyAtributeWindowForm.objectName():
+            FamilyAtributeWindowForm.setObjectName(u"FamilyAtributeWindowForm")
+        FamilyAtributeWindowForm.resize(1024, 580)
+        self.verticalLayout = QVBoxLayout(FamilyAtributeWindowForm)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.central_widget_frame = QFrame(FamilyAtributeWindow)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.central_widget_frame = QFrame(FamilyAtributeWindowForm)
         self.central_widget_frame.setObjectName(u"central_widget_frame")
         self.central_widget_frame.setFrameShape(QFrame.Shape.StyledPanel)
         self.central_widget_frame.setFrameShadow(QFrame.Shadow.Raised)
@@ -74,7 +75,7 @@ class Ui_FamilyAtributeWindow(object):
         self.label.setMaximumSize(QSize(30, 16777215))
         self.label.setStyleSheet(u"background-color: white;\n"
 "border-radius: 0px;")
-        self.label.setPixmap(QPixmap(u"../../../referencias/pys6-recipes-organizer-master/assets/icons/search.png"))
+        self.label.setPixmap(QPixmap(u"src/assets/icons/search.png"))
 
         self.horizontalLayout_2.addWidget(self.label)
 
@@ -97,7 +98,7 @@ class Ui_FamilyAtributeWindow(object):
         self.label_2.setMaximumSize(QSize(30, 16777215))
         self.label_2.setStyleSheet(u"background-color: white;\n"
 "border-radius: 0px;")
-        self.label_2.setPixmap(QPixmap(u"../../../referencias/pys6-recipes-organizer-master/assets/icons/search.png"))
+        self.label_2.setPixmap(QPixmap(u"src/assets/icons/search.png"))
 
         self.horizontalLayout_2.addWidget(self.label_2)
 
@@ -163,7 +164,7 @@ class Ui_FamilyAtributeWindow(object):
 "}\n"
 "QPushButton::hover {background-color : #ffc13b};")
         icon = QIcon()
-        icon.addFile(u"../assets/icons/edit.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon.addFile(u"src/assets/icons/edit.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.edit_family_button.setIcon(icon)
 
         self.horizontalLayout_3.addWidget(self.edit_family_button)
@@ -177,7 +178,7 @@ class Ui_FamilyAtributeWindow(object):
 "}\n"
 "QPushButton::hover {background-color : #ffc13b};")
         icon1 = QIcon()
-        icon1.addFile(u"../assets/icons/plus.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon1.addFile(u"src/assets/icons/plus.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.create_family_button.setIcon(icon1)
 
         self.horizontalLayout_3.addWidget(self.create_family_button)
@@ -198,18 +199,18 @@ class Ui_FamilyAtributeWindow(object):
         self.verticalLayout.addWidget(self.central_widget_frame)
 
 
-        self.retranslateUi(FamilyAtributeWindow)
+        self.retranslateUi(FamilyAtributeWindowForm)
 
-        QMetaObject.connectSlotsByName(FamilyAtributeWindow)
+        QMetaObject.connectSlotsByName(FamilyAtributeWindowForm)
     # setupUi
 
-    def retranslateUi(self, FamilyAtributeWindow):
-        FamilyAtributeWindow.setWindowTitle(QCoreApplication.translate("FamilyAtributeWindow", u"Form", None))
+    def retranslateUi(self, FamilyAtributeWindowForm):
+        FamilyAtributeWindowForm.setWindowTitle(QCoreApplication.translate("FamilyAtributeWindowForm", u"Form", None))
         self.label.setText("")
-        self.search_family_lineEdit.setPlaceholderText(QCoreApplication.translate("FamilyAtributeWindow", u"Buscar familia...", None))
+        self.search_family_lineEdit.setPlaceholderText(QCoreApplication.translate("FamilyAtributeWindowForm", u"Buscar familia...", None))
         self.label_2.setText("")
-        self.search_atribute_lineEdit.setPlaceholderText(QCoreApplication.translate("FamilyAtributeWindow", u"Buscar atributo...", None))
-        self.edit_family_button.setText(QCoreApplication.translate("FamilyAtributeWindow", u"Editar", None))
-        self.create_family_button.setText(QCoreApplication.translate("FamilyAtributeWindow", u"Nueva Familia", None))
+        self.search_atribute_lineEdit.setPlaceholderText(QCoreApplication.translate("FamilyAtributeWindowForm", u"Buscar atributo...", None))
+        self.edit_family_button.setText(QCoreApplication.translate("FamilyAtributeWindowForm", u"Editar", None))
+        self.create_family_button.setText(QCoreApplication.translate("FamilyAtributeWindowForm", u"Nueva Familia", None))
     # retranslateUi
 

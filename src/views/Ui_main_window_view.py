@@ -19,14 +19,15 @@ from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QLayout, QPushButton, QSizePolicy, QSpacerItem,
     QToolButton, QVBoxLayout, QWidget)
 
-class Ui_Form(object):
-    def setupUi(self, Form):
-        if not Form.objectName():
-            Form.setObjectName(u"Form")
-        Form.resize(1024, 722)
-        self.verticalLayout = QVBoxLayout(Form)
+class Ui_MainWindowForm(object):
+    def setupUi(self, MainWindowForm):
+        if not MainWindowForm.objectName():
+            MainWindowForm.setObjectName(u"MainWindowForm")
+        MainWindowForm.resize(1024, 722)
+        self.verticalLayout = QVBoxLayout(MainWindowForm)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.central_widget_frame = QFrame(Form)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.central_widget_frame = QFrame(MainWindowForm)
         self.central_widget_frame.setObjectName(u"central_widget_frame")
         self.central_widget_frame.setFrameShape(QFrame.Shape.StyledPanel)
         self.central_widget_frame.setFrameShadow(QFrame.Shadow.Raised)
@@ -159,7 +160,7 @@ class Ui_Form(object):
         self.label.setSizeIncrement(QSize(2, 1))
         self.label.setBaseSize(QSize(381, 339))
         self.label.setAutoFillBackground(False)
-        self.label.setPixmap(QPixmap(u"./src/assets/icons/logo_abad.png"))
+        self.label.setPixmap(QPixmap(u"src/assets/icons/logo_abad.png"))
         self.label.setScaledContents(True)
         self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.label.setWordWrap(False)
@@ -182,17 +183,17 @@ class Ui_Form(object):
         QWidget.setTabOrder(self.products_button, self.procceses_button)
         QWidget.setTabOrder(self.procceses_button, self.familys_button)
 
-        self.retranslateUi(Form)
+        self.retranslateUi(MainWindowForm)
 
-        QMetaObject.connectSlotsByName(Form)
+        QMetaObject.connectSlotsByName(MainWindowForm)
     # setupUi
 
-    def retranslateUi(self, Form):
-        Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
-        self.toolButton.setText(QCoreApplication.translate("Form", u"...", None))
-        self.familys_button.setText(QCoreApplication.translate("Form", u"Familias", None))
-        self.products_button.setText(QCoreApplication.translate("Form", u"Productos", None))
-        self.procceses_button.setText(QCoreApplication.translate("Form", u"Procesos", None))
+    def retranslateUi(self, MainWindowForm):
+        MainWindowForm.setWindowTitle(QCoreApplication.translate("MainWindowForm", u"Form", None))
+        self.toolButton.setText(QCoreApplication.translate("MainWindowForm", u"...", None))
+        self.familys_button.setText(QCoreApplication.translate("MainWindowForm", u"Familias", None))
+        self.products_button.setText(QCoreApplication.translate("MainWindowForm", u"Productos", None))
+        self.procceses_button.setText(QCoreApplication.translate("MainWindowForm", u"Procesos", None))
         self.label.setText("")
     # retranslateUi
 

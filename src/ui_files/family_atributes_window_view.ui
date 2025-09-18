@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>FamilyAtributeWindow</class>
- <widget class="QWidget" name="FamilyAtributeWindow">
+ <class>FamilyAtributeWindowForm</class>
+ <widget class="QWidget" name="FamilyAtributeWindowForm">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -14,6 +14,18 @@
    <string>Form</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
    <item>
     <widget class="QFrame" name="central_widget_frame">
      <property name="frameShape">
@@ -153,7 +165,7 @@ border-radius: 0px;</string>
                      <string/>
                     </property>
                     <property name="pixmap">
-                     <pixmap>../../../referencias/pys6-recipes-organizer-master/assets/icons/search.png</pixmap>
+                     <pixmap>../assets/icons/search.png</pixmap>
                     </property>
                    </widget>
                   </item>
@@ -215,7 +227,7 @@ border-radius: 0px;</string>
                      <string/>
                     </property>
                     <property name="pixmap">
-                     <pixmap>../../../referencias/pys6-recipes-organizer-master/assets/icons/search.png</pixmap>
+                     <pixmap>../assets/icons/search.png</pixmap>
                     </property>
                    </widget>
                   </item>

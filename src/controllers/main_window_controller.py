@@ -1,12 +1,11 @@
 from PySide6.QtWidgets import QWidget
 
-# TODO: Cambiar nombre de Ui_Form a Ui_MainWindow
-from views.Ui_main_window_view import Ui_Form
+from views.Ui_main_window_view import Ui_MainWindowForm
 
 from controllers.family_atributes_window_controller import FamilyAtributeWindow
 
 
-class MainWindow(QWidget, Ui_Form):
+class MainWindow(QWidget, Ui_MainWindowForm):
     def __init__(self):
         super().__init__()
         self.setupUi(self)

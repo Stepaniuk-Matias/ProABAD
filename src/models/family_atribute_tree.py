@@ -6,3 +6,5 @@ class FamilyAtributeTreeModel(QStandardItemModel):
         super().__init__(parent)
 
         self.setHorizontalHeaderLabels(["Nombre","Tipo","Unidad","Obligatorio"])
+        
+        

@@ -1,13 +1,11 @@
 from PySide6.QtWidgets import QWidget
 from PySide6.QtGui import QStandardItem
 
-from views.Ui_family_atributes_window_view import Ui_FamilyAtributeWindow
+from views.Ui_family_atributes_window_view import Ui_FamilyAtributeWindowForm
 from models.family_atribute_tree import FamilyAtributeTreeModel
 from database.queries import select_family_and_atributes
 
-# TODO: Cambiar el nombre de Ui Form a Ui_FamilyAtributeWindow
-
-class FamilyAtributeWindow (QWidget, Ui_FamilyAtributeWindow):
+class FamilyAtributeWindow (QWidget, Ui_FamilyAtributeWindowForm):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
