@@ -14,8 +14,8 @@ def select_family_and_atributes():
                 a.unidad,
                 a.es_obligatorio,
                 a.orden
-            FROM Familia f
-            LEFT JOIN Atributo a 
+            FROM "Familia" f
+            LEFT JOIN "Atributo" a 
                 ON f.id_familia = a.id_familia
             ORDER BY f.nombre, a.orden;
             """
