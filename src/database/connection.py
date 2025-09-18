@@ -3,10 +3,10 @@ import psycopg2
 #TODO: pasar config a un archivo .txt
 
 config = {
-    'host': 'localhost',
-    'database': 'recipes_db',
+    'host': '192.168.20.6',
+    'database': 'proabad_app',
     'user': 'postgres',
-    'password': '1234',
+    'password': 'Proabad1213',
 }
 
 def create_connection():
