@@ -7,6 +7,7 @@ from models.family_atribute_tree import FamilyAtributeTreeModel
 from database.queries import (select_family_and_atributes, 
                               update_family_name, 
                               update_attribute_field)
+from utils.combo_box_delegate import ComboBoxDelegate
 
 class FamilyAtributeWindow (QWidget, Ui_FamilyAtributeWindowForm):
     def __init__(self):
@@ -14,6 +15,11 @@ class FamilyAtributeWindow (QWidget, Ui_FamilyAtributeWindowForm):
         self.setupUi(self)
 
         self.model = FamilyAtributeTreeModel()
+
+        
+        # implementación de ComboBox para tipos
+        tipos_validos = ["int", "float", "bool", "list"]
+        self.tree_view.setItemDelegateForColumn(1, ComboBoxDelegate(tipos_validos))
 
         self.model.dataChanged.connect(self.on_model_data_changed)
 
