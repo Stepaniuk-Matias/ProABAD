@@ -24,10 +24,14 @@ class FamilyAtributeWindow (QWidget, Ui_FamilyAtributeWindowForm):
         self.model.dataChanged.connect(self.on_model_data_changed)
 
         familia_items = {}
+        atributo_items = {}
 
         rows = select_family_and_atributes()
 
-        for id_fam, nombre_fam, id_attr, nom_attr, tipo, unidad, obligatorio, orden in rows:
+        for (id_fam, nombre_fam, id_attr, nom_attr, tipo, unidad, obligatorio, orden_attr,
+             id_opcion, valor_opcion, orden_opcion) in rows:
+            
+            # --- Nivel 1: Familia ---
             if id_fam not in familia_items:
                 # Nodo padre
                 familia_item = QStandardItem(nombre_fam)
@@ -36,8 +40,8 @@ class FamilyAtributeWindow (QWidget, Ui_FamilyAtributeWindowForm):
                 self.model.appendRow([familia_item])
                 familia_items[id_fam] = familia_item
 
-            # Si tiene atributo, lo agregamos como hijo
-            if id_attr:
+            # --- Nivel 2: Atributo ---
+            if id_attr and id_attr not in atributo_items: # Si tiene atributo, lo agregamos como hijo
 
                 attr_nombre = QStandardItem(nom_attr)
                 attr_nombre.setData(id_attr, Qt.UserRole)
@@ -52,15 +56,29 @@ class FamilyAtributeWindow (QWidget, Ui_FamilyAtributeWindowForm):
                 # opcional: guardar id también en esta columna si te resulta más cómodo
                 attr_obligatorio.setData(id_attr, Qt.UserRole)
 
-                attr_items = [
+                attr_estructura = [
                     attr_nombre,
                     attr_tipo,
                     attr_unidad,
                     attr_obligatorio
                 ]
 
-                familia_items[id_fam].appendRow(attr_items)
-        
+                familia_items[id_fam].appendRow(attr_estructura)
+                atributo_items[id_attr] = attr_nombre # guardamos referencia al nodo del atributo
+            
+            # --- Nivel 3: Opciones ---
+            if id_opcion:
+                opcion_item = QStandardItem(valor_opcion)
+                opcion_item.setData(id_opcion, Qt.UserRole)
+                opcion_item.setFlags(opcion_item.flags() | Qt.ItemIsEditable)
+
+                # opcional: mostramos orden como segunda columna
+                orden_item = QStandardItem(str(orden_opcion) if orden_opcion is not None else "")
+                orden_item.setFlags(orden_item.flags() | Qt.ItemIsEditable)
+
+                # añadimos como hijos de la fila del atributo
+                atributo_items[id_attr].appendRow([opcion_item, orden_item])
+                
         self.tree_view.setModel(self.model)
 
     
