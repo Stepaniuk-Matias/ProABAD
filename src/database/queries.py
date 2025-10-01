@@ -24,15 +24,10 @@ def select_family_and_atributes():
                 a.unidad,
                 a.es_obligatorio,
                 a.orden AS orden_atributo,
-                o.id_opcion,
-                o.valor,
-                o.orden AS orden_opcion
+                a.opciones_atributos
             FROM familias f
-            LEFT JOIN atributos a 
+            LEFT JOIN atributos a
                 ON f.id_familia = a.id_familia
-            LEFT JOIN opciones_atributos o
-                ON a.id_atributo = o.id_atributo
-            ORDER BY f.nombre, a.orden, o.orden;
             """
     cur.execute(query)
     rows = cur.fetchall()
