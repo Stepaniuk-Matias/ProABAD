@@ -11,6 +11,7 @@ class UnitOfWork:
             self.conn.commit()
         else:
             self.conn.rollback()
+        self.cur.close()
 
 # Esto se usa asi:
 # with UnitOfWork(conn) as cur:
