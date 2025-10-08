@@ -1,19 +1,19 @@
-class Familia:
-    def __init__(self, id_familia, nombre):
-        self.id = id_familia
-        self.nombre = nombre
-        self.atributos = []  # lista de objetos Atributo
-
-    def agregar_atributo(self, atributo):
-        self.atributos.append(atributo)
-
+from typing import List
 
 class Atributo:
-    def __init__(self, id_atributo, nombre, tipo_dato, unidad, obligatorio, orden, opciones_atributos):
-        self.id = id_atributo
+    def __init__(self, id_atributo: int, id_familia: int, nombre: str, tipo: str,
+                 unidad: str, es_obligatorio: bool, orden: int, opciones: List[str] = None):
+        self.id_atributo = id_atributo
+        self.id_familia = id_familia
         self.nombre = nombre
-        self.tipo_dato = tipo_dato
+        self.tipo = tipo
         self.unidad = unidad
-        self.obligatorio = obligatorio
+        self.es_obligatorio = es_obligatorio
         self.orden = orden
-        self.opciones_atributos = opciones_atributos
+        self.opciones = opciones or []
+
+class Familia:
+    def __init__(self, id_familia: int, nombre: str, atributos: List[Atributo] = None):
+        self.id_familia = id_familia
+        self.nombre = nombre
+        self.atributos = atributos or []

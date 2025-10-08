@@ -1,53 +1,47 @@
 from PySide6.QtGui import QStandardItem
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QColor
+from models.schema_familia import Familia, Atributo
 
 class FamilyTreeAdapter:
     def __init__(self, tipos_validos):
         self.tipos_validos = tipos_validos
 
-    def build_model(self, model, rows):
+    def build_model(self, model, familias: list[Familia]):
         familia_items = {}
         atributo_items = {}
 
-        for (id_fam, nombre_fam, id_attr, nom_attr, tipo, unidad, obligatorio, orden_attr,
-             opciones_atributo) in rows:
+        for familia in familias:
+            # --- Familia ---
+            familia_item = QStandardItem(familia.nombre)
+            familia_item.setData(familia.id_familia, Qt.UserRole)
+            model.appendRow([familia_item])
+            familia_items[familia.id_familia] = familia_item
 
-            # Familia
-            if id_fam not in familia_items:
-                familia_item = QStandardItem(nombre_fam)
-                familia_item.setData(id_fam, Qt.UserRole)
-                model.appendRow([familia_item])
-                familia_items[id_fam] = familia_item
+            # --- Atributos ---
+            for atributo in familia.atributos:
+                attr_nombre = QStandardItem(atributo.nombre)
+                attr_nombre.setData(atributo.id_atributo, Qt.UserRole)
 
-            # Atributo
-            if id_attr and id_attr not in atributo_items:
-                attr_nombre = QStandardItem(nom_attr)
-                attr_nombre.setData(id_attr, Qt.UserRole)
-
-                attr_tipo = QStandardItem(tipo)
-                attr_unidad = QStandardItem(unidad)
+                attr_tipo = QStandardItem(atributo.tipo)
+                attr_unidad = QStandardItem(atributo.unidad)
 
                 attr_obligatorio = QStandardItem()
                 attr_obligatorio.setFlags(attr_obligatorio.flags() | Qt.ItemIsUserCheckable | Qt.ItemIsEnabled)
-                attr_obligatorio.setCheckState(Qt.Checked if obligatorio else Qt.Unchecked)
-                attr_obligatorio.setData(id_attr, Qt.UserRole)
+                attr_obligatorio.setCheckState(Qt.Checked if atributo.es_obligatorio else Qt.Unchecked)
+                attr_obligatorio.setData(atributo.id_atributo, Qt.UserRole)
 
-                familia_items[id_fam].appendRow([
+                familia_item.appendRow([
                     attr_nombre,
                     attr_tipo,
                     attr_unidad,
                     attr_obligatorio
                 ])
-                atributo_items[id_attr] = attr_nombre
+                atributo_items[atributo.id_atributo] = attr_nombre
 
-            # Opción
-            if opciones_atributo:
-                for op in opciones_atributo:
-                    opcion_item = QStandardItem(op)
+                # --- Opciones ---
+                for opcion in atributo.opciones:
+                    opcion_item = QStandardItem(opcion)
                     opcion_item.setFlags(opcion_item.flags() | Qt.ItemIsEditable | Qt.ItemIsDragEnabled)
                     opcion_item.setBackground(QColor('#ff6e40'))
-                    opcion_item.setFont()
-                    # opcion_item
-
-                    atributo_items[id_attr].appendRow([QStandardItem(), opcion_item])
+                    atributo_items[atributo.id_atributo].appendRow([opcion_item])

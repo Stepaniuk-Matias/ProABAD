@@ -5,7 +5,10 @@ from views.Ui_family_atributes_window_view import Ui_FamilyAtributeWindowForm
 from models.family_atribute_tree import FamilyAtributeTreeModel
 from utils.combo_box_delegate import ComboBoxDelegate
 
+from database.connection import create_connection
+
 from repositories.family_repo import FamilyRepository
+from repositories.mappers.family_mapper import FamilyMapper
 from services.family_service import FamilyService
 from adapters.family_tree_adapter import FamilyTreeAdapter
 
@@ -16,7 +19,7 @@ class FamilyAtributeWindow(QWidget, Ui_FamilyAtributeWindowForm):
         self.setupUi(self)
 
         # Inyección de dependencias
-        repository = FamilyRepository()
+        repository = FamilyRepository(create_connection, FamilyMapper)
         self.service = FamilyService(repository)
         self.model = FamilyAtributeTreeModel()
         self.adapter = FamilyTreeAdapter(["int", "float", "bool", "list"])
@@ -24,8 +27,8 @@ class FamilyAtributeWindow(QWidget, Ui_FamilyAtributeWindowForm):
         self.tree_view.setItemDelegateForColumn(1, ComboBoxDelegate(self.adapter.tipos_validos))
         self.model.dataChanged.connect(self.on_model_data_changed)
 
-        rows = self.service.load_tree_data()
-        self.adapter.build_model(self.model, rows)
+        familias = self.service.obtener_familias()
+        self.adapter.build_model(self.model, familias)
         self.tree_view.setModel(self.model)
 
     def on_model_data_changed(self, topLeft: QModelIndex, bottomRight: QModelIndex, roles=None):

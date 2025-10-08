@@ -155,33 +155,33 @@ class Ui_FamilyAtributeWindowForm(object):
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer_2)
 
-        self.edit_family_button = QPushButton(self.buttons_frame)
-        self.edit_family_button.setObjectName(u"edit_family_button")
-        self.edit_family_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.edit_family_button.setStyleSheet(u"QPushButton {\n"
+        self.edit_button = QPushButton(self.buttons_frame)
+        self.edit_button.setObjectName(u"edit_button")
+        self.edit_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.edit_button.setStyleSheet(u"QPushButton {\n"
 "	background-color : #ff6e40;\n"
 "	color: white;\n"
 "}\n"
 "QPushButton::hover {background-color : #ffc13b};")
         icon = QIcon()
         icon.addFile(u"src/assets/icons/edit.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.edit_family_button.setIcon(icon)
+        self.edit_button.setIcon(icon)
 
-        self.horizontalLayout_3.addWidget(self.edit_family_button)
+        self.horizontalLayout_3.addWidget(self.edit_button)
 
-        self.create_family_button = QPushButton(self.buttons_frame)
-        self.create_family_button.setObjectName(u"create_family_button")
-        self.create_family_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.create_family_button.setStyleSheet(u"QPushButton {\n"
+        self.create_button = QPushButton(self.buttons_frame)
+        self.create_button.setObjectName(u"create_button")
+        self.create_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.create_button.setStyleSheet(u"QPushButton {\n"
 "	background-color : #ff6e40;\n"
 "	color: white;\n"
 "}\n"
 "QPushButton::hover {background-color : #ffc13b};")
         icon1 = QIcon()
         icon1.addFile(u"src/assets/icons/plus.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.create_family_button.setIcon(icon1)
+        self.create_button.setIcon(icon1)
 
-        self.horizontalLayout_3.addWidget(self.create_family_button)
+        self.horizontalLayout_3.addWidget(self.create_button)
 
 
         self.verticalLayout_5.addWidget(self.buttons_frame)
@@ -210,7 +210,7 @@ class Ui_FamilyAtributeWindowForm(object):
         self.search_family_lineEdit.setPlaceholderText(QCoreApplication.translate("FamilyAtributeWindowForm", u"Buscar familia...", None))
         self.label_2.setText("")
         self.search_atribute_lineEdit.setPlaceholderText(QCoreApplication.translate("FamilyAtributeWindowForm", u"Buscar atributo...", None))
-        self.edit_family_button.setText(QCoreApplication.translate("FamilyAtributeWindowForm", u"Editar", None))
-        self.create_family_button.setText(QCoreApplication.translate("FamilyAtributeWindowForm", u"Nueva Familia", None))
+        self.edit_button.setText(QCoreApplication.translate("FamilyAtributeWindowForm", u"Editar", None))
+        self.create_button.setText(QCoreApplication.translate("FamilyAtributeWindowForm", u"Nuevo", None))
     # retranslateUi
 

@@ -354,7 +354,7 @@ border-radius: 0px;</string>
                    </spacer>
                   </item>
                   <item>
-                   <widget class="QPushButton" name="edit_family_button">
+                   <widget class="QPushButton" name="edit_button">
                     <property name="cursor">
                      <cursorShape>PointingHandCursor</cursorShape>
                     </property>
@@ -375,7 +375,7 @@ QPushButton::hover {background-color : #ffc13b};</string>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QPushButton" name="create_family_button">
+                   <widget class="QPushButton" name="create_button">
                     <property name="cursor">
                      <cursorShape>PointingHandCursor</cursorShape>
                     </property>
@@ -387,7 +387,7 @@ QPushButton::hover {background-color : #ffc13b};</string>
 QPushButton::hover {background-color : #ffc13b};</string>
                     </property>
                     <property name="text">
-                     <string>Nueva Familia</string>
+                     <string>Nuevo</string>
                     </property>
                     <property name="icon">
                      <iconset>
