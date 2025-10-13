@@ -59,5 +59,6 @@ class FamilyRepository(IFamilyRepository):
 
         with self.connection() as conn:
             with UnitOfWork(conn) as cur:
+                print("Updating attribute:", id_attr, field, new_val)
                 query = f"""UPDATE atributos SET {field} = %s WHERE id_atributo = %s;"""
                 cur.execute(query, (new_val, id_attr))

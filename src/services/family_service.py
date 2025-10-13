@@ -1,4 +1,5 @@
 from typing import List
+from PySide6.QtCore import Qt
 
 from models.schema_familia import Familia, Atributo
 from repositories.family_repo import IFamilyRepository
@@ -16,7 +17,7 @@ class FamilyService:
     # Métodos de lectura
     # -----------------------------
 
-    def obtener_familias(self) -> List[Familia]:
+    def get_families(self) -> List[Familia]:
         """
         Devuelve una lista de objetos Family con sus atributos.
         """
@@ -43,15 +44,17 @@ class FamilyService:
         
         self.repository.update_family_name(id_fam, new_name)
 
-    def update_attribute(self, id_attr: int, field: str, new_val):
+    def update_attribute_from_ui(self, id_attr: int, col: int, idx):
         """
-        Actualiza un field específico del atributo.
-        Se puede incluir lógica adicional de validación.
+        Recibe un cambio en una celda del modelo (columna, índice Qt)
+        y se encarga de traducirlo a un campo y valor válido.
         """
-        # Validaciones de negocio
+        field_map = {0: 'nombre_atributo', 1: 'tipo_dato', 2: 'unidad', 3: 'es_obligatorio'}
+        field = field_map.get(col)
+
+        new_val = idx.data(Qt.EditRole) if col != 3 else (idx.data(Qt.CheckStateRole) == Qt.Checked)
+
         if field == "tipo_dato" and new_val not in ["int", "float", "bool", "list"]:
             raise ValueError(f"Tipo de dato '{new_val}' no permitido.")
-        if field == "unidad" and len(new_val) > 10:
-            raise ValueError("Unidad demasiado larga (máx. 10 caracteres).")
-
-        self.repository.update_attribute_field(id_attr, field, new_val)
+        if field:
+            self.repository.update_attribute_field(id_attr, field, new_val)
