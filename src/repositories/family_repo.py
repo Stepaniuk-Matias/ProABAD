@@ -62,3 +62,37 @@ class FamilyRepository(IFamilyRepository):
                 print("Updating attribute:", id_attr, field, new_val)
                 query = f"""UPDATE atributos SET {field} = %s WHERE id_atributo = %s;"""
                 cur.execute(query, (new_val, id_attr))
+
+    def insert_family(self, nombre: str) -> int:
+        conn = self.connection()
+        cur = conn.cursor()
+        cur.execute("INSERT INTO familias (nombre) VALUES (%s) RETURNING id_familia;", (nombre,))
+        new_id = cur.fetchone()[0]
+        conn.commit()
+        return new_id
+
+    def insert_attribute(self, id_familia, nombre, tipo, unidad, es_obligatorio, orden):
+        conn = self.connection()
+        cur = conn.cursor()
+        cur.execute("""
+            INSERT INTO atributos (id_familia, nombre_atributo, tipo_dato, unidad, es_obligatorio, orden)
+            VALUES (%s, %s, %s, %s, %s, %s)
+            RETURNING id_atributo;
+        """, (id_familia, nombre, tipo, unidad, es_obligatorio, orden))
+        new_id = cur.fetchone()[0]
+        conn.commit()
+        return new_id
+
+    def add_option_to_attribute(self, id_atributo: int, nueva_opcion: str):
+        conn = self.connection()
+        cur = conn.cursor()
+        cur.execute("""
+            UPDATE atributos
+            SET opciones_atributos = 
+                CASE 
+                    WHEN opciones_atributos IS NULL THEN ARRAY[%s]
+                    ELSE opciones_atributos || %s
+                END
+            WHERE id_atributo = %s;
+        """, (nueva_opcion, [nueva_opcion], id_atributo))
+        conn.commit()

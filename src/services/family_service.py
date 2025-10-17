@@ -58,3 +58,12 @@ class FamilyService:
             raise ValueError(f"Tipo de dato '{new_val}' no permitido.")
         if field:
             self.repository.update_attribute_field(id_attr, field, new_val)
+
+    def create_family(self, nombre: str) -> int:
+        return self.repository.insert_family(nombre)
+
+    def create_attribute(self, id_familia, nombre, tipo, unidad, es_obligatorio, orden):
+        return self.repository.insert_attribute(id_familia, nombre, tipo, unidad, es_obligatorio, orden)
+
+    def add_option_to_attribute(self, id_atributo: int, nueva_opcion: str):
+        self.repository.add_option_to_attribute(id_atributo, nueva_opcion)
