@@ -1,5 +1,5 @@
 from PySide6.QtWidgets import QWidget, QMessageBox
-from PySide6.QtCore import Qt, QModelIndex
+from PySide6.QtCore import Qt, QPoint, QModelIndex
 from PySide6.QtGui import QStandardItem
 
 from views.Ui_family_atributes_window_view import Ui_FamilyAtributeWindowForm
@@ -25,6 +25,7 @@ class TreeController:
         self.tree_view = tree_view
         self.factory = factory
         self.service = service
+
 
         # Habilitar arrastrar y soltar dentro del árbol
         # self.tree_view.setDragDropMode(self.tree_view.InternalMove)
@@ -153,4 +154,11 @@ class FamilyAtributeWindow(QWidget, Ui_FamilyAtributeWindowForm):
             self.service.update_attribute_from_ui(id_attr, col, idx)
         except Exception as e:
             QMessageBox.warning(self, "Error", f"No se pudo actualizar el atributo:\n{e}")
+
+    def keyPressEvent(self, event):
+        """Intercepta presionar tecla Escape para limpiar selección."""
+        if event.key() == Qt.Key_Escape:
+            self.tree_view.clearSelection()
+        else:
+            super().keyPressEvent(event)
 
