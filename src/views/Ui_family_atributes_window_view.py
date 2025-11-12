@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'family_atributes_window_view.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.9.1
+## Created by: Qt User Interface Compiler version 6.10.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -75,7 +75,7 @@ class Ui_FamilyAtributeWindowForm(object):
         self.label.setMaximumSize(QSize(30, 16777215))
         self.label.setStyleSheet(u"background-color: white;\n"
 "border-radius: 0px;")
-        self.label.setPixmap(QPixmap(u"src/assets/icons/search.png"))
+        self.label.setPixmap(QPixmap(u"../assets/icons/search.png"))
 
         self.horizontalLayout_2.addWidget(self.label)
 
@@ -98,7 +98,7 @@ class Ui_FamilyAtributeWindowForm(object):
         self.label_2.setMaximumSize(QSize(30, 16777215))
         self.label_2.setStyleSheet(u"background-color: white;\n"
 "border-radius: 0px;")
-        self.label_2.setPixmap(QPixmap(u"src/assets/icons/search.png"))
+        self.label_2.setPixmap(QPixmap(u"../assets/icons/search.png"))
 
         self.horizontalLayout_2.addWidget(self.label_2)
 
@@ -116,6 +116,31 @@ class Ui_FamilyAtributeWindowForm(object):
 
         self.tree_view = QTreeView(self.left_frame)
         self.tree_view.setObjectName(u"tree_view")
+        self.tree_view.setStyleSheet(u"QTreeView {\n"
+"    background-color: #f5f5f5;\n"
+"    alternate-background-color: #e6e6e6;\n"
+"    show-decoration-selected: 1;\n"
+"	gridline-color: #cccccc;\n"
+"}\n"
+"QTreeView::item {\n"
+"	border: 1px solid #b0b0b0;\n"
+"    padding: 4px;\n"
+"}\n"
+"QTreeView::item:selected {\n"
+"    background-color: #0078d7;\n"
+"    color: white;\n"
+"}\n"
+"QHeaderView::section {\n"
+"    background-color: #95c1e8;\n"
+"    padding: 4px;\n"
+"    border: 1px solid #004b8d;\n"
+"}\n"
+"")
+        self.tree_view.setAlternatingRowColors(True)
+        self.tree_view.setUniformRowHeights(True)
+        self.tree_view.setSortingEnabled(True)
+        self.tree_view.setAnimated(True)
+        self.tree_view.setAllColumnsShowFocus(False)
 
         self.verticalLayout_4.addWidget(self.tree_view)
 
@@ -164,7 +189,7 @@ class Ui_FamilyAtributeWindowForm(object):
 "}\n"
 "QPushButton::hover {background-color : #ffc13b};")
         icon = QIcon()
-        icon.addFile(u"src/assets/icons/edit.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon.addFile(u"../assets/icons/edit.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.edit_button.setIcon(icon)
 
         self.horizontalLayout_3.addWidget(self.edit_button)
@@ -178,7 +203,7 @@ class Ui_FamilyAtributeWindowForm(object):
 "}\n"
 "QPushButton::hover {background-color : #ffc13b};")
         icon1 = QIcon()
-        icon1.addFile(u"src/assets/icons/plus.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon1.addFile(u"../assets/icons/plus.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.create_button.setIcon(icon1)
 
         self.horizontalLayout_3.addWidget(self.create_button)

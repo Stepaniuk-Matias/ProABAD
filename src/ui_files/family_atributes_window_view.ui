@@ -258,7 +258,45 @@ border-radius: 0px;</string>
                 </widget>
                </item>
                <item>
-                <widget class="QTreeView" name="tree_view"/>
+                <widget class="QTreeView" name="tree_view">
+                 <property name="styleSheet">
+                  <string notr="true">QTreeView {
+    background-color: #f5f5f5;
+    alternate-background-color: #e6e6e6;
+    show-decoration-selected: 1;
+	gridline-color: #cccccc;
+}
+QTreeView::item {
+	border: 1px solid #b0b0b0;
+    padding: 4px;
+}
+QTreeView::item:selected {
+    background-color: #0078d7;
+    color: white;
+}
+QHeaderView::section {
+    background-color: #95c1e8;
+    padding: 4px;
+    border: 1px solid #004b8d;
+}
+</string>
+                 </property>
+                 <property name="alternatingRowColors">
+                  <bool>true</bool>
+                 </property>
+                 <property name="uniformRowHeights">
+                  <bool>true</bool>
+                 </property>
+                 <property name="sortingEnabled">
+                  <bool>true</bool>
+                 </property>
+                 <property name="animated">
+                  <bool>true</bool>
+                 </property>
+                 <property name="allColumnsShowFocus">
+                  <bool>false</bool>
+                 </property>
+                </widget>
                </item>
               </layout>
              </widget>

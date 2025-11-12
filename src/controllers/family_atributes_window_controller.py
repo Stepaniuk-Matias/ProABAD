@@ -159,6 +159,7 @@ class FamilyAtributeWindow(QWidget, Ui_FamilyAtributeWindowForm):
         """Intercepta presionar tecla Escape para limpiar selección."""
         if event.key() == Qt.Key_Escape:
             self.tree_view.clearSelection()
+            self.tree_view.setCurrentIndex(QModelIndex())
         else:
             super().keyPressEvent(event)
 
