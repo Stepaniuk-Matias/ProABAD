@@ -13,6 +13,8 @@ def create_connection():
     """Establece y devuelve una conexión a la base de datos PostgreSQL."""
     try:
         conn = psycopg2.connect(**config)
+        with conn.cursor() as cur:
+            cur.execute("SET search_path TO familia, proceso, producto, recurso, usuario, public;")
     except psycopg2.Error as e:
         print(f"Error al conectar a la base de datos: {e}")
         return None
