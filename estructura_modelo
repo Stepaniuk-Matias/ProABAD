@@ -1,0 +1,92 @@
+project_root/
+│
+├── src/
+│   ├── domain/                         # 💡 Reglas del negocio (puro Python)
+│   │   ├── processes/                  # Subdominio: gestión de procesos
+│   │   │   ├── entities/
+│   │   │   │   ├── process.py
+│   │   │   │   ├── task.py
+│   │   │   │   └── resource.py
+│   │   │   ├── value_objects/
+│   │   │   │   ├── process_status.py
+│   │   │   │   └── date_range.py
+│   │   │   ├── events/
+│   │   │   │   └── process_created.py
+│   │   │   └── __init__.py
+│   │   ├── users/                      # Subdominio: gestión de usuarios
+│   │   │   ├── entities/
+│   │   │   │   └── user.py
+│   │   │   ├── value_objects/
+│   │   │   │   └── email.py
+│   │   │   └── events/
+│   │   │       └── user_created.py
+│   │   └── __init__.py
+│   │
+│   ├── application/                    # ⚙️ Casos de uso / servicios de aplicación
+│   │   ├── processes/
+│   │   │   ├── use_cases/
+│   │   │   │   ├── create_process.py
+│   │   │   │   ├── list_processes.py
+│   │   │   │   ├── update_process.py
+│   │   │   │   └── delete_process.py
+│   │   │   ├── ports/
+│   │   │   │   └── process_repository_port.py
+│   │   │   └── service_process.py
+│   │   ├── users/
+│   │   │   ├── use_cases/
+│   │   │   │   ├── create_user.py
+│   │   │   │   └── update_user.py
+│   │   │   ├── ports/
+│   │   │   │   └── user_repository_port.py
+│   │   │   └── service_user.py
+│   │   └── __init__.py
+│   │
+│   ├── infrastructure/                 # 🧩 Adaptadores técnicos (DB, APIs, etc.)
+│   │   ├── database/
+│   │   │   ├── connection.py
+│   │   │   ├── process_repository_postgres.py
+│   │   │   ├── user_repository_postgres.py
+│   │   │   └── migrations/
+│   │   ├── events/
+│   │   │   ├── event_bus.py
+│   │   │   └── event_handlers/
+│   │   │       ├── log_to_file.py
+│   │   │       └── sync_to_external_api.py
+│   │   ├── config/
+│   │   │   └── settings.py
+│   │   └── __init__.py
+│   │
+│   ├── interface/                      # 🖥️ Capa de presentación (GUI, CLI, API)
+│   │   ├── ui/
+│   │   │   ├── models/
+│   │   │   │   ├── process_table_model.py
+│   │   │   │   ├── user_table_model.py
+│   │   │   │   └── filter_proxies.py
+│   │   │   ├── windows/
+│   │   │   │   ├── main_window.py
+│   │   │   │   ├── processes_window.py
+│   │   │   │   └── users_window.py
+│   │   │   ├── dialogs/
+│   │   │   │   ├── create_process_dialog.py
+│   │   │   │   ├── edit_process_dialog.py
+│   │   │   │   ├── create_user_dialog.py
+│   │   │   │   └── edit_user_dialog.py
+│   │   │   ├── resources/              # .ui, íconos, estilos, etc.
+│   │   │   └── __init__.py
+│   │   ├── cli/
+│   │   │   └── main_cli.py             # si querés versión por consola
+│   │   ├── api/
+│   │   │   └── rest_app.py             # si más adelante hacés REST
+│   │   └── __init__.py
+│   │
+│   ├── tests/                          # 🧪 Tests unitarios y de integración
+│   │   ├── domain/
+│   │   ├── application/
+│   │   ├── infrastructure/
+│   │   └── interface/
+│   │
+│   └── main.py                         # Composition root (ensambla todo)
+│
+├── requirements.txt
+├── pyproject.toml
+└── README.md
