@@ -1,10 +1,9 @@
 from dataclasses import dataclass, field
-from uuid import UUID
 from .atributo import Atributo
 
 @dataclass
 class Familia:
-    id: UUID
+    id: int
     nombre: str
     atributos: list[Atributo] = field(default_factory = list)
 

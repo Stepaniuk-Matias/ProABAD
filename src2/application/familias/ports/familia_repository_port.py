@@ -10,7 +10,7 @@ class IFamiliaRepository(ABC):
         pass
 
     @abstractmethod
-    def create(self, familia: Familia) -> None:
+    def save(self, familia: Familia) -> None:
         pass
 
     @abstractmethod

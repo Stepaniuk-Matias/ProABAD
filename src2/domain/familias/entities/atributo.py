@@ -1,12 +1,11 @@
 from dataclasses import dataclass
-from uuid import UUID
 
 from ..value_objects.unidad import Unidad
 from ..value_objects.tipo_dato import TipoDato
 
 @dataclass
 class Atributo:
-    id: UUID
+    id: int
     nombre: str
     tipo_dato: TipoDato
     unidad: Unidad
